@@ -1,6 +1,8 @@
 import gerar_dados
-import bubble_sort
-import quick_sort
+from algoritmos_ordenacao import bubble_sort
+from algoritmos_ordenacao import quick_sort
+from algoritmos_ordenacao import selection_sort
+from algoritmos_ordenacao import insertion_sort
 import busca_matriz
 import array_temperaturas
 import matriz_sensores
@@ -26,9 +28,13 @@ while continuar:  # repete até o usuário escolher sair
             minha_lista = gerar_dados.gerar_lista(tamanho)
             lista_bs = minha_lista.copy()
             lista_qs = minha_lista.copy()
+            lista_is = minha_lista.copy()
+            lista_ss = minha_lista.copy()
 
             # roda o Bubble Sort e recebe os contadores de volta
             comparacoes_bs, trocas_bs = bubble_sort.bubble_sort(lista_bs)
+            comparacoes_is, trocas_is = insertion_sort.insertion_sort(lista_is)
+            comparacoes_ss, trocas_ss = selection_sort.selection_sort(lista_ss)
 
             # zera os contadores globais do Quick Sort antes de rodar de novo
             quick_sort.comparacoes = 0
@@ -45,6 +51,8 @@ while continuar:  # repete até o usuário escolher sair
             print(f"--- Tamanho: {tamanho} ---")
             print(f"Bubble Sort  -> Comparações: {comparacoes_bs} | Trocas: {trocas_bs}")
             print(f"Quick Sort   -> Comparações: {comparacoes_qs} | Movimentações: {mvtotal_qs}")
+            print(f"Insert Sort  -> Comparações: {comparacoes_is} | Trocas: {trocas_is}")
+            print(f"Select Sort  -> Comparações: {comparacoes_ss} | Trocas: {trocas_ss}")
             print()
 
     elif escolha == 2:
